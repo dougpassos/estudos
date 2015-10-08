@@ -1,0 +1,258 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"C",
+				"ClientInterface"
+			],
+			[
+				"ne",
+				"new"
+			],
+			[
+				"func",
+				"function"
+			],
+			[
+				"pu",
+				"public"
+			],
+			[
+				"set",
+				"setClient"
+			],
+			[
+				"Min",
+				"MinkContext"
+			],
+			[
+				"us",
+				"use"
+			],
+			[
+				"get_",
+				"get_class"
+			],
+			[
+				"var",
+				"var_dump"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 390.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Lis",
+				"Package Control: List Packages"
+			],
+			[
+				"",
+				"Package Control: Upgrade/Overwrite All Packages"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/var/www/html/bistro/class/pedido.php",
+		"/var/www/html/bistro/telaPedido.php",
+		"/var/www/html/bistro/bistro.sublime-project",
+		"/home/douglas/devweb5/public_html/htdocs/home/module/Assinatura/test/functionalPhp4/features/ValidacaoDeCamposAssinatura.feature",
+		"/home/douglas/devweb5/public_html/htdocs/home/module/Assinatura/test/functionalPhp4/behat.yml",
+		"/home/douglas/devweb5/public_html/htdocs/home/module/Assinatura/test/functionalPhp4/features/CadastroViaRedeSocial.feature",
+		"/home/douglas/devweb5/public_html/htdocs/home/module/Assinatura/test/functionalPhp4/features/bootstrap/AssinaturaTest/FeatureContext.php",
+		"/home/douglas/devweb5/saida_behat.txt",
+		"/home/douglas/.config/sublime-text-3/Packages/User/Package Control.sublime-settings",
+		"/home/douglas/.config/sublime-text-3/Packages/User/Distraction Free.sublime-settings",
+		"/home/douglas/.config/sublime-text-3/Packages/Composer/composer-sublime.sublime-settings",
+		"/home/douglas/.config/sublime-text-3/Packages/User/BehaveToolkit.sublime-settings",
+		"/home/douglas/.config/sublime-text-3/Packages/BehaveToolkit/BehaveToolkit.sublime-settings",
+		"/home/douglas/devweb5/public_html/htdocs/home/module/Assinatura/test/functionalPhp4/features/IdentidadeVisual.feature",
+		"/home/douglas/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
+		"/home/douglas/devweb5/public_html/htdocs/home/module/Assinatura/test/functionalPhp4/features/AssinaturaManager.feature",
+		"/var/www/html/features/api.feature",
+		"/var/www/html/features/bootstrap/FeatureContext.php",
+		"/var/www/html/bin/behat",
+		"/var/www/html/features/bootstrap/_FeatureContext.php",
+		"/var/www/html/behat.yml",
+		"/var/www/html/bin/phpunit",
+		"/var/www/html/vendor/guzzlehttp/guzzle/build/packager.php",
+		"/var/www/html/vendor/guzzlehttp/guzzle/src/ClientInterface.php",
+		"/var/www/html/vendor/guzzlehttp/guzzle/src/Message/FutureResponse.php",
+		"/var/www/html/vendor/behat/web-api-extension/src/Context/WebApiContext.php",
+		"/var/www/html/vendor/guzzlehttp/guzzle/README.md",
+		"/var/www/html/composer.phar",
+		"/var/www/html/vendor/behat/web-api-extension/features/testapp.feature",
+		"/var/www/html/features/context.feature",
+		"/var/www/html/features/bootstrap/old_FeatureContext.php",
+		"/var/www/html/vendor/behat/web-api-extension/features/context.feature",
+		"/var/www/html/composer.json",
+		"/home/douglas/devweb5/public_html/htdocs/home/vendor/catho/behat-base/src/Catho/BehatBase/Zf2AwareTrait.php",
+		"/var/www/html/features/behat.yml",
+		"/home/douglas/devweb5/public_html/htdocs/home/composer.json",
+		"/home/douglas/devweb5/public_html/htdocs/home/vendor/catho/behat-base/composer.json",
+		"/home/douglas/devweb5/public_html/htdocs/home/behat.yml",
+		"/var/www/html/vendor/symfony/config/Definition/Exception/InvalidConfigurationException.php",
+		"/var/www/html/vendor/symfony/dependency-injection/ContainerBuilder.php",
+		"/var/www/html/behat.yml.anterior",
+		"/home/douglas/devweb5/public_html/htdocs/home/package.json",
+		"/var/www/html/features/CadastroViaRedeSocial.feature",
+		"/var/www/html/vendor/behat/web-api-extension/composer.json",
+		"/home/douglas/devweb5/public_html/htdocs/home/module/Assinatura/test/functionalPhp4/features/CadastroViaRedeSocial",
+		"/home/douglas/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/douglas/Área de Trabalho/teste.php",
+		"/etc/apache2/apache2.conf",
+		"/var/www/html/index.html",
+		"/etc/php5/apache2/php.ini"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "bistro.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 273.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
