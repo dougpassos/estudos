@@ -8,24 +8,21 @@ if(isset($_GET["logout"]) && $_GET["logout"]==true) {
 }
 ?>
 <?php
-if(isset($_GET["login"]) && $_GET["login"]==true) {
+if(isset($_SESSION["success"])) {
 ?>
-<p class="alert-success">Logado com sucesso!</p>
+<p class="alert-success"><?= $_SESSION["success"]; ?></p>
 <?php
+var_dump($_SESSION);
+    unset($_SESSION["success"]);
 }
 ?>
 <?php
-if(isset($_GET["login"]) && $_GET["login"]==false) {
+if(isset($_SESSION["danger"])) {
 ?>
-<p class="alert-danger">Usuário ou senha inválida!</p>
+<p class="alert-danger"><?= $_SESSION["danger"] ?></p>
 <?php
-}
-?>
-<?php
-if(isset($_GET["falhaDeSeguranca"]) && $_GET["falhaDeSeguranca"]==true) {
-?>
-<p class="alert-danger">Você não tem acesso a essa funcionalidade</p>
-<?php
+var_dump($_SESSION);
+    unset($_SESSION["danger"]);
 }
 ?>
 			<h1>Bem vindo!</h1>

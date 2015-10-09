@@ -1,12 +1,14 @@
-<?php include("cabecalho.php"); 
- include("conecta.php"); 
- include("banco-produto.php"); ?>
+<?php include("cabecalho.php");
+ include("conecta.php");
+ include("banco-produto.php");
+ include("logica-usuario.php"); ?>
 
 <?php
-	 if(array_key_exists("removido", $_GET) && $_GET["removido"]==true) {
+	 if(isset($_SESSION["success"])) {
 ?>
-		 <p class="alert-success">Produto apagado com sucesso.</p>
+		 <p class="alert-success"><?= $_SESSION["success"] ?></p>
 <?php
+		unset($_SESSION["success"]);
 	 }
 ?>
 
@@ -32,8 +34,8 @@
 	</tr>
 	<?php
 		endforeach
-	?>	
-</table>		
+	?>
+</table>
 
 
-<?php include("rodape.php"); ?>			
+<?php include("rodape.php"); ?>
