@@ -12,7 +12,6 @@ if(isset($_SESSION["success"])) {
 ?>
 <p class="alert-success"><?= $_SESSION["success"]; ?></p>
 <?php
-var_dump($_SESSION);
     unset($_SESSION["success"]);
 }
 ?>
@@ -21,7 +20,6 @@ if(isset($_SESSION["danger"])) {
 ?>
 <p class="alert-danger"><?= $_SESSION["danger"] ?></p>
 <?php
-var_dump($_SESSION);
     unset($_SESSION["danger"]);
 }
 ?>
