@@ -1,5 +1,5 @@
 <?php
-	
+include("conecta.php");
 function listaCategorias($conexao) {
 	$categorias = array();
 	$query = "select * from categorias";

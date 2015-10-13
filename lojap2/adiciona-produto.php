@@ -1,7 +1,6 @@
-<?php include("cabecalho.php");
- include("conecta.php");
- include("banco-produto.php");
- include("logica-usuario.php");
+<?php require_once("cabecalho.php");
+ require_once("banco-produto.php");
+ require_once("logica-usuario.php");
 verificaUsuario();
 $nome = $_POST['nome'];
 $preco = $_POST['preco'];
@@ -23,4 +22,4 @@ if(insereProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usado)) { 
 }
 ?>
 
-<?php include("rodape.php"); ?>
+<?php require_once("rodape.php"); ?>
