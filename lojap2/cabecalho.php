@@ -1,3 +1,7 @@
+ <?php
+ error_reporting(E_ALL ^ E_NOTICE);
+ include("mostra-alerta.php");
+ ?>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -6,7 +10,7 @@
 	<link href="css/loja.css" rel="stylesheet">
 </head>
 <body>
-	
+
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -21,8 +25,11 @@
 			</div>
 		</div>
 	</div>
-	
-	
+
+
 	<div class="container">
 		<div class="principal">
-			
+<?php
+mostraAlerta("success");
+mostraAlerta("danger");
+?>
