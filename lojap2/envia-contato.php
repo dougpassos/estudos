@@ -3,7 +3,7 @@ session_start();
 
 $nome = $_POST['nome'];
 $email = $_POST['email'];
-$mensage = $_POST['mensagem'];
+$mensagem = $_POST['mensagem'];
 
 require_once("PHPMailerAutoload.php");
 
@@ -14,9 +14,9 @@ $mail->Port = 587;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
 $mail->Username = "douglas.p.doug@gmail.com";
-$mail->Password = "123456";
+$mail->Password = "senha";
 $mail->setFrom("douglas.p.doug@gmail.com", "Alura Curso PHP e MySQL");
-$mail->addAddress("alura.php.e.mysql@gmail.com");
+$mail->addAddress("douglas.p.doug@gmail.com");
 $mail->Subject = "Email de contato da loja";
 $mail->msgHTML("<html>de: {$nome}<br/>email: {$email}<br/>mensagem: {$mensagem}</html>");
 $mail->AltBody = "de: {$nome}\nemail:{$email}\nmensagem: {$mensagem}";
