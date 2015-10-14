@@ -1,15 +1,17 @@
 <?php require_once("cabecalho.php");
 require_once("banco-produto.php");
 require_once("logica-usuario.php");
-require_once ("produto.php");
+require_once("class/produto.php");
+require_once("class/categoria.php");
 verificaUsuario();
 
 $produto = new Produto();
-
+$categoria = new Categoria;
+$categoria = $_POST["categoria_id"];
 $produto->nome = $_POST["nome"];
 $produto->preco = $_POST["preco"];
 $produto->descricao = $_POST["descricao"];
-$produto->categoria_id = $_POST["categoria_id"];
+$produto->categoria = $categoria;
 $produto->usado = $_POST['usado'];
 
 if(insereProduto($conexao, $produto)) { ?>
