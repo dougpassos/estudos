@@ -8,6 +8,23 @@ class Produto
     private $categoria;
     private $usado = false;
 
+    function __construct($nome, $preco)
+    {
+        $this->setNome($nome);
+        $this->setPreco($preco);
+        $this->setCategoria( new Categoria() );
+    }
+
+    function __destruct()
+    {
+        //echo "Destruindo o produto ".$this->getNome();
+    }
+
+    function __toString()
+    {
+        return "Nome: ".$this->getNome()."</p>";
+    }
+
     public function valorComDesconto($valor = 0.1)
     {
         if ($valor > 0 && $valor < 1) {

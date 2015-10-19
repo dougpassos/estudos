@@ -1,11 +1,12 @@
 <?php require_once("cabecalho.php");
- require_once("banco-produto.php");
+ require_once("class/produtoDAO.php");
  require_once("logica-usuario.php");
  require_once("class/produto.php");
  require_once("class/categoria.php");
 verificaUsuario();
 $produto = new Produto;
 $categoria = new Categoria;
+$produtoDAO = new ProdutoDAO($conexao);
 $categoria->setId($_POST['categoria_id']);
 $produto->setNome($_POST['nome']);
 $produto->setPreco($_POST['preco']);
@@ -18,7 +19,7 @@ if(array_key_exists('usado', $_POST)) {
 	$produto->SetUsado("false");
 }
 
-if(insereProduto($conexao, $produto)) { ?>
+if($produtoDAO->insereProduto($produto)) { ?>
 	<p class="text-success">O produto <?= $produto->getNome() ?>, <?= $produto->getPreco() ?> foi adicionado.</p>
 <?php } else {
 	$msg = mysqli_error($conexao);
