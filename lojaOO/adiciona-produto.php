@@ -4,12 +4,10 @@
  require_once("class/produto.php");
  require_once("class/categoria.php");
 verificaUsuario();
-$produto = new Produto;
+$produto = new Produto($_POST['nome'],$_POST['preco']);
 $categoria = new Categoria;
 $produtoDAO = new ProdutoDAO($conexao);
 $categoria->setId($_POST['categoria_id']);
-$produto->setNome($_POST['nome']);
-$produto->setPreco($_POST['preco']);
 $produto->setDescricao($_POST['descricao']);
 $produto->SetCategoria($categoria);
 

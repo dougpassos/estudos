@@ -5,7 +5,7 @@
 <table class="table table-striped table-bordered">
 	<?php
 		$produtosDAO = new ProdutoDAO($conexao);
-		$produtos = $produtosDAO->listaProdutos();
+		$produtos = (object) $produtosDAO->listaProdutos();
 		foreach($produtos as $produto) :
 	?>
 	<tr>

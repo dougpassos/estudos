@@ -12,7 +12,6 @@ class Produto
     {
         $this->setNome($nome);
         $this->setPreco($preco);
-        $this->setCategoria( new Categoria() );
     }
 
     function __destruct()

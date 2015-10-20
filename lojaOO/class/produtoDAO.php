@@ -3,6 +3,7 @@ require_once("conecta.php");
 require_once("class/produto.php");
 require_once("class/categoria.php");
 
+
 class ProdutoDAO{
 
     private $conexao;
@@ -18,10 +19,8 @@ class ProdutoDAO{
 
             $categoria = new Categoria;
             $categoria->setNome($produto_atual['categoria_nome']);
-            $produto = new Produto;
+            $produto = new Produto($produto_atual['nome'],$produto_atual['preco']);
             $produto->setId($produto_atual['id']);
-            $produto->setNome($produto_atual['nome']);
-            $produto->setPreco($produto_atual['preco']);
             $produto->setDescricao($produto_atual['descricao']);
             $produto->setCategoria($categoria);
             $produto->setUsado($produto_atual['usado']);
@@ -35,9 +34,9 @@ class ProdutoDAO{
         $query = "insert into produtos (nome, preco, descricao, categoria_id, usado) values ('{$produto->getNome()}', {$produto->getPreco()}, '{$produto->getDescricao()}', {$produto->getCategoria()->getId()}, {$produto->getUsado()})";
         return mysqli_query($this->conexao, $query);
     }
-    function alteraProduto($id, $nome, $preco, $descricao, $categoria_id, $usado) {
-        $nome = mysqli_real_escape_string($this->conexao, $nome);
-        $query = "update produtos set nome = '{$nome}', preco = {$preco}, descricao = '{$descricao}', categoria_id= {$categoria_id}, usado = {$usado} where id = '{$id}'";
+    function alteraProduto($produto) {
+        //$nome = mysqli_real_escape_string($this->conexao, $nome);
+        $query = "update produtos set nome = '{$produto->getNome()}', preco = '{$produto->getPreco()}', descricao = '{$produto->getDescricao()}', categoria_id= '{$produto->getCategoria()->getId()}', usado = '{$produto->getUsado()}' where id = '{$produto->getId()}'";
         return mysqli_query($this->conexao, $query);
     }
 

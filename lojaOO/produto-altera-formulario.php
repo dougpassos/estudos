@@ -1,9 +1,8 @@
 <?php require_once("cabecalho.php");
 require_once("banco-categoria.php");
-require_once("banco-produto.php");
-
-$id = $_GET['id'];
-$produto = buscaProduto($conexao, $id);
+require_once("class/produtoDAO.php");
+$produtoDAO = new ProdutoDAO($conexao);
+$produto = $produtoDAO->buscaProduto($_GET['id']);
 $categorias = listaCategorias($conexao);
 $usado = $produto['usado'] ? "checked='checked'" : "";
 ?>
