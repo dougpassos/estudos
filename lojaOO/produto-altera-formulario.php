@@ -1,6 +1,6 @@
 <?php require_once("cabecalho.php");
 require_once("banco-categoria.php");
-require_once("class/produtoDAO.php");
+
 $produtoDAO = new ProdutoDAO($conexao);
 $produto = $produtoDAO->buscaProduto($_GET['id']);
 $categorias = listaCategorias($conexao);

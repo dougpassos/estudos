@@ -1,10 +1,14 @@
-<?php require_once("cabecalho.php");
- require_once("banco-produto.php");
- require_once("logica-usuario.php");
+<?php
+require_once("cabecalho.php");
+$produtoDAO = new ProdutoDAO($conexao);
+$produto = new Produto($_POST['nome'],$_POST['preco']);
 
- $id = $_POST['id'];
- removeProduto($conexao, $id);
- $_SESSION["success"] = "Produto removido com sucesso.";
- header("Location: produto-lista.php");
- die();
- ?>
+if($produtoDAO->removeProduto($_POST['id'])) { ?>
+    <p class="text-success">O produto <?= $produto->getNome() ?>,   foi deletado.</p>
+<?php } else {
+    $msg = mysqli_error($conexao);
+?>
+    <p class="text-danger">O produto <?= $produto->getNome() ?> não foi deletado: <?= $msg?></p>
+<?php
+}
+?>

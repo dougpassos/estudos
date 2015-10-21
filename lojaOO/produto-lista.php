@@ -1,5 +1,6 @@
 <?php require_once("cabecalho.php");
- require_once("class/produtoDAO.php");
+ require_once("class/ProdutoDAO.php");
+
  ?>
 
 <table class="table table-striped table-bordered">
@@ -24,6 +25,8 @@
 		<td>
 			<form action="remove-produto.php" method="post">
 				<input type="hidden" name="id" value="<?=$produto->getId()?>">
+				<input type="hidden" name="nome" value="<?=$produto->getNome()?>">
+				<input type="hidden" name="preco" value="<?=$produto->getPreco()?>">
 				<button class="btn btn-danger">remover</button>
 			</form>
 		</td>

@@ -1,6 +1,6 @@
 <?php
 function customAutoload($className) {
-    if (file_exists($className . '.php')) {
+    if (file_exists('class/' . $className . '.php')) {
         require_once 'class/' . $className . '.php';
     }
 }

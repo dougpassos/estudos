@@ -1,6 +1,5 @@
 <?php
 require_once("cabecalho.php");
-require_once("class/produtoDAO.php");
 
 $DAO = new ProdutoDAO($conexao);
 $produto = new Produto($_POST['nome'],$_POST['preco']);

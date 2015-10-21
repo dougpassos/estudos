@@ -1,8 +1,8 @@
 <?php
 require_once("conecta.php");
-require_once("class/produto.php");
-require_once("class/categoria.php");
-
+/*require_once("class/Produto.php");
+require_once("class/Categoria.php");*/
+require_once("autoload.php");
 
 class ProdutoDAO{
 

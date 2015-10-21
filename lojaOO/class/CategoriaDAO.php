@@ -1,6 +1,6 @@
 <?php
 require_once("conecta.php");
-require_once("class/categoria.php");
+require_once("autoload.php");
 
 class CategoriaDAO{
 
