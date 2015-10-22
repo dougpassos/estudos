@@ -21,6 +21,8 @@
 		<?php }else{ ?>
 				<td>Novo</td>
 		<?php } ?>
+		<td><?= $produto->tipoProduto ?></td>
+		<td></td>
 		<td><a class="btn btn-primary" href="produto-altera-formulario.php?id=<?=$produto->getId()?>">alterar</a></td>
 		<td>
 			<form action="remove-produto.php" method="post">

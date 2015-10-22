@@ -2,7 +2,14 @@
 require_once("cabecalho.php");
 
 $DAO = new ProdutoDAO($conexao);
-$produto = new Produto($_POST['nome'],$_POST['preco']);
+
+if($_POST['tipoProduto'] == 'Livro'){
+    $produto = new Livro($_POST['nome'],$_POST['preco']);
+    $produto->setIsbn($_POST['ispn']);
+} else {
+    $produto = new Produto($_POST['nome'],$_POST['preco']);
+}
+
 $produto->setId($_POST['id']);
 $produto->setDescricao($_POST['descricao']);
 $categoria = new Categoria;
@@ -13,7 +20,7 @@ if(array_key_exists('usado', $_POST)) {
 } else {
 	$produto->setUsado(0);
 }
-
+$produto->tipoProduto = $_POST['tipoProduto'];
 if($DAO->alteraProduto($produto)) { ?>
 	<p class="text-success">O produto <?= $produto->getNome() ?>, <?= $produto->getPreco() ?> foi alterado.</p>
 <?php } else {

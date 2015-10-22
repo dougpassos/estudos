@@ -7,6 +7,7 @@ class Produto
     private $descricao;
     private $categoria;
     private $usado = false;
+    public $tipoProduto = "";
 
     function __construct($nome, $preco)
     {

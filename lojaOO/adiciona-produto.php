@@ -1,15 +1,19 @@
 <?php require_once("cabecalho.php");
- require_once("class/produtoDAO.php");
  require_once("logica-usuario.php");
- require_once("class/produto.php");
- require_once("class/categoria.php");
+
 verificaUsuario();
-$produto = new Produto($_POST['nome'],$_POST['preco']);
+if($_POST['tipoProduto'] == 'Livro'){
+    $produto = new Livro($_POST['nome'],$_POST['preco']);
+    $produto->setIsbn($_POST['ispn']);
+} else {
+    $produto = new Produto($_POST['nome'],$_POST['preco']);
+}
 $categoria = new Categoria;
 $produtoDAO = new ProdutoDAO($conexao);
 $categoria->setId($_POST['categoria_id']);
 $produto->setDescricao($_POST['descricao']);
-$produto->SetCategoria($categoria);
+$produto->setCategoria($categoria);
+$produto->tipoProduto = $_POST['tipoProduto'];
 
 if(array_key_exists('usado', $_POST)) {
 	$produto->SetUsado("true");
