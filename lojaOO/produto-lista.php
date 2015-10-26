@@ -4,15 +4,26 @@
  ?>
 
 <table class="table table-striped table-bordered">
+	<tr>
+		<th>Produto</th>
+		<th>Preço</th>
+		<th>Imposto</th>
+		<th>Descrição</th>
+		<th>Categoria</th>
+		<th>Novo / Usado</th>
+		<th>Tipo de Produto</th>
+		<th>ISBN</th>
+	</tr>
 	<?php
 		$produtosDAO = new ProdutoDAO($conexao);
 		$produtos = (object) $produtosDAO->listaProdutos();
+
 		foreach($produtos as $produto) :
 	?>
 	<tr>
 		<td><?= $produto->getNome() ?></td>
 		<td><?= $produto->getPreco() ?></td>
-		<td><?= $produto->valorComDesconto() ?></td>
+		<td>R$ <?= $produto->calculaImposto() ?> </td>
 		<td><?= substr($produto->getDescricao(), 0, 40) ?></td>
 		<td><?= $produto->getCategoria()->getNome() ?></td>
 		<?php if($produto->getUsado() == 1)

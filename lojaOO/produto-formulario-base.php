@@ -24,7 +24,7 @@
             <tr>
                 <td>Tipo do produto</td>
                 <td>
-                    <select name="tipoProduto">
+                    <select name="tipoProduto" class="form-control">
                         <option value="Livro">Livro</option>
                         <option value="Produto">Produto</option>
                     </select>

@@ -39,7 +39,6 @@ class CategoriaDAO{
 
     }
     public function montaListaCategorias($selectId = "") {
-        $categorias = array();
         $query = "select * from categorias";
         if($resultado = mysqli_query($this->conexao, $query)){
             print '<select name="categoria_id" class="form-control">';

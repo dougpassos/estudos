@@ -13,5 +13,10 @@ class Livro extends Produto
         $this->isbn = $isbn;
     }
 
+    function calculaImposto()
+    {
+        return parent::calculaImposto() * 2;
+    }
+
 
 }

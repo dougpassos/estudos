@@ -3,7 +3,7 @@ class Produto
 {
     private $id;
     private $nome;
-    private $preco;
+    protected $preco;
     private $descricao;
     private $categoria;
     private $usado = false;
@@ -20,9 +20,9 @@ class Produto
         //echo "Destruindo o produto ".$this->getNome();
     }
 
-    function __toString()
+    function __tostring()
     {
-        return "Nome: ".$this->getNome()."</p>";
+        return "Nome: ".$this->getNome();
     }
 
     function temIsbn()
@@ -42,6 +42,11 @@ class Produto
             $this->preco -= $this->preco * $valor;
         }
         return $this->preco;
+    }
+
+    function calculaImposto()
+    {
+        return $this->preco - $this->preco * 0.195;
     }
 
     public function getId()
