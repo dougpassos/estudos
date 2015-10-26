@@ -63,7 +63,12 @@ class ProdutoDAO{
         $query = "select p.*,c.nome as categoria_nome from produtos as p join categorias as c on c.id=p.categoria_id where p.id = {$id}";
         $resultado = mysqli_query($this->conexao, $query);
         $retornoProduto = mysqli_fetch_assoc($resultado);
-        $prodLocalizado = new Produto($retornoProduto['nome'], $retornoProduto['preco']);
+        if (isset($retornoProduto['isbn'])) {
+                $prodLocalizado = new Livro($retornoProduto['nome'],$retornoProduto['preco']);
+                $prodLocalizado->setIsbn($retornoProduto['isbn']);
+            } else {
+                $prodLocalizado = new Produto($retornoProduto['nome'],$retornoProduto['preco']);
+            }
         $categoria = new Categoria;
         $categoria->setId($retornoProduto['categoria_id']);
         $categoria->setNome($retornoProduto['categoria_id']);
@@ -72,7 +77,6 @@ class ProdutoDAO{
         $prodLocalizado->setUsado($retornoProduto['usado']);
         $prodLocalizado->setCategoria($categoria);
         $prodLocalizado->tipoProduto = $retornoProduto['tipoProduto'];
-
         return $prodLocalizado;
     }
 

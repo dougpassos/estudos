@@ -6,6 +6,8 @@ $CategoriaDAO = new CategoriaDAO($conexao);
 $produto = $produtoDAO->buscaProduto($_GET['id']);
 $categoriaProduto = $produto->getCategoria()->getId();
 $usado = $produto->getUsado() ? "checked='checked'" : "";
+$isbn = $produto->temIsbn() ? $produto->getIsbn() : "";
+
 ?>
 	<h1>Alterando produto</h1>
 	<form action="altera-produto.php" method="post">

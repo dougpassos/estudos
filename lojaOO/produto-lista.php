@@ -13,6 +13,8 @@
 		<th>Novo / Usado</th>
 		<th>Tipo de Produto</th>
 		<th>ISBN</th>
+		<th colspan="2">Editar</th>
+
 	</tr>
 	<?php
 		$produtosDAO = new ProdutoDAO($conexao);
@@ -33,7 +35,7 @@
 				<td>Novo</td>
 		<?php } ?>
 		<td><?= $produto->tipoProduto ?></td>
-		<td><?php if($produto->isLivro()): ?>
+		<td><?php if($produto->temIsbn()): ?>
             ISBN: <?= $produto->getIsbn() ?>
         <?php endif ?>
 		</td>

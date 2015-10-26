@@ -15,7 +15,7 @@ class Livro extends Produto
 
     function calculaImposto()
     {
-        return parent::calculaImposto() * 2;
+        return parent::calculaImposto() * 0.5;
     }
 
 

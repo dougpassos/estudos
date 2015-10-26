@@ -32,5 +32,5 @@
             </tr>
             <tr>
                 <td>ISPN (Caso seja um livro)</td>
-                <td><input type="text" name="ispn" /></td>
+                <td><input class="form-control" type="text" name="ispn" value="<?=$isbn?>"></td>
             </tr>
