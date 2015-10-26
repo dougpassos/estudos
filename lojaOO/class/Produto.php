@@ -25,6 +25,17 @@ class Produto
         return "Nome: ".$this->getNome()."</p>";
     }
 
+    function temIsbn()
+    {
+        return $this instanceof Livro;
+    }
+
+
+    public function isLivro()
+    {
+        return strcasecmp($this->tipoProduto, "livro") == 0;
+    }
+
     public function valorComDesconto($valor = 0.1)
     {
         if ($valor > 0 && $valor < 1) {

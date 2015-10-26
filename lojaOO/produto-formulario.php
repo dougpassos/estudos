@@ -1,12 +1,10 @@
 <?php require_once("cabecalho.php");
-//require_once("banco-categoria.php");
 require_once("logica-usuario.php");
 
 verificaUsuario();
 $CategoriaDAO = new CategoriaDAO($conexao);
-$categoria = $CategoriaDAO->listaCategorias();
-var_dump($categoria);
-//$categorias = listaCategorias($conexao);
+//$categoria = $CategoriaDAO->listaCategorias();
+$categoriaProduto = "";
 $nome = "";
 $preço = 0;
 $produto = new Produto($nome, $preco);

@@ -38,4 +38,25 @@ class CategoriaDAO{
         }
 
     }
+    public function montaListaCategorias($selectId = "") {
+        $categorias = array();
+        $query = "select * from categorias";
+        if($resultado = mysqli_query($this->conexao, $query)){
+            print '<select name="categoria_id" class="form-control">';
+            while($categoria_atual = mysqli_fetch_assoc($resultado)) {
+                if($selectId != "" && $selectId == $categoria_atual["id"]){
+                    $selecionar = " selected='selected'";
+                } else {
+                    $selecionar = "";
+                }
+                print "<option value=".$categoria_atual["id"]."".$selecionar.">".$categoria_atual["nome"]."</option>";
+            }
+            print '</select>';
+        } else {
+            echo "erro: montagem de lista de categorias";
+            die();
+        }
+
+    }
+
 }

@@ -18,16 +18,7 @@
             <tr>
                 <td>Categoria</td>
                 <td>
-                    <select name="categoria_id" class="form-control">
-                    <?php foreach($categorias as $categoria) :
-                        $essaEhACategoria = $produto->getCategoria->getId() == $categoria->getid();
-                        $selecao = $essaEhACategoria ? "selected='selected'" : "";
-                        ?>
-                        <option value="<?=$categoria->getId()?>" <?=$selecao?>>
-                                <?=$categoria->getNome()    ?>
-                        </option>
-                    <?php endforeach ?>
-                    </select>
+                <?php $CategoriaDAO->montaListaCategorias($categoriaProduto) ?>
                 </td>
             </tr>
             <tr>

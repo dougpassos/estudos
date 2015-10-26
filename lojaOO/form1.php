@@ -8,17 +8,8 @@ $categorias = $CategoriaDAO->listaCategorias();
     <form action="adiciona-produto.php" method="post">
         <table class="table">
             <td>Categoria</td>
-                <td>
-                    <select name="categoria_id" class="form-control">
-                    <?php foreach($categorias as $categoria) :?>
-                        <option value="<?=$categoria->getId()?>">
-                                <?=$categoria->getNome()?>
-                        </option>
-                    <?php endforeach ?>
-                    </select>
-                </td>
+                <td><?php $CategoriaDAO->montaListaCategorias() ?></td>
             </tr>
-            <tr>
             <tr>
                 <td>
                     <button class="btn btn-primary" type="submit">Cadastrar</button>
