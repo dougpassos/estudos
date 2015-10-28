@@ -1,15 +1,16 @@
 <?php
-class Livro extends Produto
+abstract class Livro extends Produto
 {
-    private $isbn;
+    protected $isbn;
 
     public function getIsbn()
     {
         return $this->isbn;
     }
 
-     public function setIsbn($isbn)
+    public function setIsbn($isbn)
     {
+
         $this->isbn = $isbn;
     }
 

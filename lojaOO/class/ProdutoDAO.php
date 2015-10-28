@@ -17,30 +17,16 @@ class ProdutoDAO{
             $categoria = new Categoria;
             $categoria->setId($produto_atual['categoria_id']);
             $categoria->setNome($produto_atual['categoria_nome']);
-            if (trim($produto_atual['isbn']) == "") {
-                $produto = new Produto($produto_atual['nome'],$produto_atual['preco']);
-            } else {
-                $produto = new Livro($produto_atual['nome'],$produto_atual['preco']);
-                $produto->setIsbn($produto_atual['isbn']);
-            }
-            $produto->setId($produto_atual['id']);
-            $produto->setDescricao($produto_atual['descricao']);
+            $factory = new ProdutoFactory;
+            $produto = $factory->criaPor($produto_atual['tipoProduto']);
+            $produto->atualizaBaseadoEm($produto_atual);
             $produto->setCategoria($categoria);
-            $produto->setUsado($produto_atual['usado']);
-            $produto->tipoProduto = $produto_atual['tipoProduto'];
-
             array_push($produtos, $produto);
         }
         return $produtos;
     }
 
     function insereProduto($produto) {
-
-        if ($produto->temIsbn()) {
-            $isbn = $produto->getIsbn();
-        } else {
-            $isbn = "";
-        }
         //$produto->setNome() = mysqli_real_escape_string($conexao, $produto->getNome());
         $query = "insert into produtos (nome, preco, descricao, categoria_id, usado, isbn, tipoProduto) values ('{$produto->getNome()}', {$produto->getPreco()}, '{$produto->getDescricao()}', {$produto->getCategoria()->getId()}, {$produto->getUsado()}, '{$produto->getIsbn()}', '{$produto->tipoProduto}')";
         return mysqli_query($this->conexao, $query);
@@ -60,24 +46,21 @@ class ProdutoDAO{
 
 
     function buscaProduto($id) {
-        $query = "select p.*,c.nome as categoria_nome from produtos as p join categorias as c on c.id=p.categoria_id where p.id = {$id}";
+        $query = "select * from produtos where id = {$id}";
         $resultado = mysqli_query($this->conexao, $query);
-        $retornoProduto = mysqli_fetch_assoc($resultado);
-        if (isset($retornoProduto['isbn'])) {
-                $prodLocalizado = new Livro($retornoProduto['nome'],$retornoProduto['preco']);
-                $prodLocalizado->setIsbn($retornoProduto['isbn']);
-            } else {
-                $prodLocalizado = new Produto($retornoProduto['nome'],$retornoProduto['preco']);
-            }
-        $categoria = new Categoria;
-        $categoria->setId($retornoProduto['categoria_id']);
-        $categoria->setNome($retornoProduto['categoria_id']);
-        $prodLocalizado->setId($retornoProduto['id']);
-        $prodLocalizado->setDescricao($retornoProduto['descricao']);
-        $prodLocalizado->setUsado($retornoProduto['usado']);
-        $prodLocalizado->setCategoria($categoria);
-        $prodLocalizado->tipoProduto = $retornoProduto['tipoProduto'];
-        return $prodLocalizado;
+        while($retornoProduto == mysqli_fetch_assoc($resultado))
+        {
+            $categoria = new Categoria;
+            $retornoCat = $categoria->buscaCategoria($retornoProduto['categoria_id']);
+            $categoria->setId($retornoCat['id']);
+            $categoria->setNome($retornoCat['nome']);
+            $factory = new ProdutoFactory;
+            $produto = $factory->criaPor($retornoProduto['tipoProduto']);
+            $produto->atualizaBaseadoEm($retornoProduto);
+            $produto->setCategoria($categoria);
+            return $produto;
+        }
+
     }
 
     function removeProduto($id) {

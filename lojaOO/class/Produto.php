@@ -1,5 +1,5 @@
 <?php
-class Produto
+abstract class Produto
 {
     private $id;
     private $nome;
@@ -9,10 +9,10 @@ class Produto
     private $usado = false;
     public $tipoProduto = "";
 
-    function __construct($nome, $preco)
+    function __construct()
     {
-        $this->setNome($nome);
-        $this->setPreco($preco);
+        /*$this->setNome($nome);
+        $this->setPreco($preco);*/
     }
 
     function __destruct()
@@ -98,7 +98,9 @@ class Produto
 
     public function setUsado($usado)
     {
+
         $this->usado = $usado;
+
     }
 
     public function getCategoria()
@@ -110,4 +112,6 @@ class Produto
     {
         $this->categoria = $categoria;
     }
+
+    abstract function atualizaBaseadoEm($params);
 }

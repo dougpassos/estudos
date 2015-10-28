@@ -7,7 +7,8 @@ $CategoriaDAO = new CategoriaDAO($conexao);
 $categoriaProduto = "";
 $nome = "";
 $preço = 0;
-$produto = new Produto($nome, $preco);
+$factory = new ProdutoFactory;
+$produto = $factory->criaPor();
 $usado = "";
 $isbn = "";
 ?>

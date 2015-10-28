@@ -19,7 +19,6 @@
 	<?php
 		$produtosDAO = new ProdutoDAO($conexao);
 		$produtos = (object) $produtosDAO->listaProdutos();
-
 		foreach($produtos as $produto) :
 	?>
 	<tr>
@@ -35,10 +34,7 @@
 				<td>Novo</td>
 		<?php } ?>
 		<td><?= $produto->tipoProduto ?></td>
-		<td><?php if($produto->temIsbn()): ?>
-            ISBN: <?= $produto->getIsbn() ?>
-        <?php endif ?>
-		</td>
+		<td>ISBN: <?= $produto->getIsbn() ?></td>
 		<td><a class="btn btn-primary" href="produto-altera-formulario.php?id=<?=$produto->getId()?>">alterar</a></td>
 		<td>
 			<form action="remove-produto.php" method="post">
