@@ -28,7 +28,12 @@ class ProdutoDAO{
 
     function insereProduto($produto) {
         //$produto->setNome() = mysqli_real_escape_string($conexao, $produto->getNome());
-        $query = "insert into produtos (nome, preco, descricao, categoria_id, usado, isbn, tipoProduto) values ('{$produto->getNome()}', {$produto->getPreco()}, '{$produto->getDescricao()}', {$produto->getCategoria()->getId()}, {$produto->getUsado()}, '{$produto->getIsbn()}', '{$produto->tipoProduto}')";
+        $campoNaoPreenchido = "";
+        if($produto->tipoProduto == "Ebook"){
+            $query = "insert into produtos (nome, preco, descricao, categoria_id, usado, isbn, tipoProduto, waterMark, taxaImpressao) values ('{$produto->getNome()}', '{$produto->getPreco()}', '{$produto->getDescricao()}', '{$produto->getCategoria()->getId()}', '{$produto->getUsado()}', '{$produto->getIsbn()}', '{$produto->tipoProduto}', '{$produto->getWaterMark()}', 'N/A')";
+        } else {
+            $query = "insert into produtos (nome, preco, descricao, categoria_id, usado, isbn, tipoProduto, waterMark, taxaImpressao) values ('{$produto->getNome()}', '{$produto->getPreco()}', '{$produto->getDescricao()}', '{$produto->getCategoria()->getId()}', '{$produto->getUsado()}', '{$produto->getIsbn()}', '{$produto->tipoProduto}', 'N/A', '{$produto->getTaxaImpressao()}')";
+        }
         return mysqli_query($this->conexao, $query);
     }
 

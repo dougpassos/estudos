@@ -15,15 +15,14 @@ class LivroFisico extends Livro
 
     public function atualizaBaseadoEm($params)
     {
-
-        $this->setIsbn($params['isbn']);
-        $this->setTaxaImpressao($params['TaxaImpressao']);
         $this->setId($params['id']);
         $this->setNome($params['nome']);
         $this->preco = $params['preco'];
         $this->setDescricao($params['descricao']);
         $this->setUsado($params['usado']);
+        $this->setIsbn($params['isbn']);
         $this->tipoProduto = $params['tipoProduto'];
+        $this->setTaxaImpressao($params['taxaImpressao']);
 
     }
 }
