@@ -4,6 +4,7 @@ require_once("banco-categoria.php");
 $produtoDAO = new ProdutoDAO($conexao);
 $CategoriaDAO = new CategoriaDAO($conexao);
 $produto = $produtoDAO->buscaProduto($_GET['id']);
+//var_dump($produto);
 $categoriaProduto = $produto->getCategoria()->getId();
 $usado = $produto->getUsado() ? "checked='checked'" : "";
 $isbn = $produto->temIsbn() ? $produto->getIsbn() : "";

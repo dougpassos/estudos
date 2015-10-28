@@ -12,12 +12,16 @@ class CategoriaDAO{
 
     public function buscaCategoria($id) {
         $categorias = array();
-        $query = "select * from categorias where id = $id";
-        $resultado = mysqli_query($conexao, $query);
-        while($categoria = mysqli_fetch_assoc($resultado)) {
-            array_push($categorias, $categoria);
+        $query = "select * from categorias where id = '{$id}'";
+        if($resultado = mysqli_query($this->conexao, $query)) {
+                while($categoria = mysqli_fetch_assoc($resultado)) {
+                    array_push($categorias, $categoria);
+                }
+                return $categorias;
+            } else {
+            echo "erro: buscategoria invalida";
+
         }
-        return $categorias;
     }
 
     public function listaCategorias() {
@@ -44,7 +48,7 @@ class CategoriaDAO{
             print '<select name="categoria_id" class="form-control">';
             while($categoria_atual = mysqli_fetch_assoc($resultado)) {
                 if($selectId != "" && $selectId == $categoria_atual["id"]){
-                    $selecionar = " selected='selected'";
+                    $selecionar = " selected";
                 } else {
                     $selecionar = "";
                 }

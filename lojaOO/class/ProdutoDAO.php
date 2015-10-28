@@ -46,20 +46,21 @@ class ProdutoDAO{
 
 
     function buscaProduto($id) {
-        $query = "select * from produtos where id = {$id}";
+        $query = "select * from produtos where id = $id";
         $resultado = mysqli_query($this->conexao, $query);
-        while($retornoProduto == mysqli_fetch_assoc($resultado))
+        while($retornoProduto = mysqli_fetch_assoc($resultado))
         {
             $categoria = new Categoria;
-            $retornoCat = $categoria->buscaCategoria($retornoProduto['categoria_id']);
-            $categoria->setId($retornoCat['id']);
-            $categoria->setNome($retornoCat['nome']);
+            $catDAO = new CategoriaDAO($this->conexao);
+            $retornoCat = $catDAO->buscaCategoria($retornoProduto['categoria_id']);
+            $categoria->setId($retornoCat[0]["id"]);
+            $categoria->setNome($retornoCat[0]['nome']);
             $factory = new ProdutoFactory;
             $produto = $factory->criaPor($retornoProduto['tipoProduto']);
             $produto->atualizaBaseadoEm($retornoProduto);
             $produto->setCategoria($categoria);
-            return $produto;
         }
+        return $produto;
 
     }
 
@@ -67,4 +68,5 @@ class ProdutoDAO{
         $query = "delete from produtos where id = {$id}";
         return mysqli_query($this->conexao, $query);
     }
+
 }

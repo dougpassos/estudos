@@ -26,8 +26,10 @@
                 <td>
                     <select name="tipoProduto" class="form-control">
                         <optgroup label="Livro">
-                            <option value="Ebook">Ebook</option>
-                            <option value="LivroFisico">Livro Físico</option>
+                            <?php $selecaoTipo = ($produto->tipoProduto == "Ebook") ? " selected" : "";?>
+                            <option value="Ebook"<?=$selecaoTipo?>>Ebook</option>
+                            <?php $selecaoTipo = ($produto->tipoProduto == "LivroFisico") ? " selected" : "";?>
+                            <option value="LivroFisico"<?=$selecaoTipo?>>Livro Físico</option>
                         </optgroup>
                     </select>
                 </td>
