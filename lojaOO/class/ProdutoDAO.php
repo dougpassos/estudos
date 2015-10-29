@@ -12,7 +12,7 @@ class ProdutoDAO{
 
     function listaProdutos() {
         $produtos = array();
-        $resultado = mysqli_query($this->conexao, "select p.*,c.nome as categoria_nome from produtos as p join categorias as c on c.id=p.categoria_id");
+        $resultado = mysqli_query($this->conexao, "select p.*,c.nome as categoria_nome from produtos as p join categorias as c on c.id=p.categoria_id order by p.id desc");
         while($produto_atual = mysqli_fetch_assoc($resultado)) {
             $categoria = new Categoria;
             $categoria->setId($produto_atual['categoria_id']);
@@ -28,12 +28,14 @@ class ProdutoDAO{
 
     function insereProduto($produto) {
         //$produto->setNome() = mysqli_real_escape_string($conexao, $produto->getNome());
-        $campoNaoPreenchido = "";
+
         if($produto->tipoProduto == "Ebook"){
-            $query = "insert into produtos (nome, preco, descricao, categoria_id, usado, isbn, tipoProduto, waterMark, taxaImpressao) values ('{$produto->getNome()}', '{$produto->getPreco()}', '{$produto->getDescricao()}', '{$produto->getCategoria()->getId()}', '{$produto->getUsado()}', '{$produto->getIsbn()}', '{$produto->tipoProduto}', '{$produto->getWaterMark()}', 'N/A')";
+            $query = "insert into produtos (nome, preco, descricao, usado, categoria_id, isbn, tipoProduto, waterMark, taxaImpressao) values ('{$produto->getNome()}', '{$produto->getPreco()}', '{$produto->getDescricao()}', '{$produto->getUsado()}', '{$produto->getCategoria()->getId()}', '{$produto->getIsbn()}', '{$produto->tipoProduto}', '{$produto->getWaterMark()}', 'N/A')";
         } else {
-            $query = "insert into produtos (nome, preco, descricao, categoria_id, usado, isbn, tipoProduto, waterMark, taxaImpressao) values ('{$produto->getNome()}', '{$produto->getPreco()}', '{$produto->getDescricao()}', '{$produto->getCategoria()->getId()}', '{$produto->getUsado()}', '{$produto->getIsbn()}', '{$produto->tipoProduto}', 'N/A', '{$produto->getTaxaImpressao()}')";
+            $query = "insert into produtos (nome, preco, descricao, usado, categoria_id, isbn, tipoProduto, waterMark, taxaImpressao) values ('{$produto->getNome()}', '{$produto->getPreco()}', '{$produto->getDescricao()}', '{$produto->getUsado()}', '{$produto->getCategoria()->getId()}', '{$produto->getIsbn()}', '{$produto->tipoProduto}', 'N/A', '{$produto->getTaxaImpressao()}')";
         }
+        echo "Valor da valiavel query:<br>";
+        var_dump($query);
         return mysqli_query($this->conexao, $query);
     }
 
