@@ -1,5 +1,5 @@
 <?php require_once("cabecalho.php");
- require_once("class/ProdutoDAO.php");
+ //require_once("class/ProdutoDAO.php");
 
  ?>
 

@@ -1,5 +1,5 @@
 <?php require_once("cabecalho.php");
-require_once("banco-categoria.php");
+//require_once("banco-categoria.php");
 
 $produtoDAO = new ProdutoDAO($conexao);
 $CategoriaDAO = new CategoriaDAO($conexao);

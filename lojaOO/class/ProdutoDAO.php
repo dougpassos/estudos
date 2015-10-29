@@ -41,10 +41,10 @@ class ProdutoDAO{
 
     function alteraProduto($produto) {
         //$nome = mysqli_real_escape_string($this->conexao, $nome);
-        if ($produto->tipoProduto == "Livro"){
-            $query = "update produtos set nome = '{$produto->getNome()}', preco = '{$produto->getPreco()}', descricao = '{$produto->getDescricao()}', categoria_id= '{$produto->getCategoria()->getId()}', usado = '{$produto->getUsado()}', isbn = '{$produto->getIsbn()}', tipoProduto = '{$produto->tipoProduto}' where id = '{$produto->getId()}'";
+        if ($produto->tipoProduto == "Ebook"){
+            $query = "update produtos set nome = '{$produto->getNome()}', preco = '{$produto->getPreco()}', descricao = '{$produto->getDescricao()}', categoria_id= '{$produto->getCategoria()->getId()}', usado = '{$produto->getUsado()}', isbn = '{$produto->getIsbn()}', tipoProduto = '{$produto->tipoProduto}', waterMark = '{$produto->getWaterMark()}', taxaImpressao = 'N/A' where id = '{$produto->getId()}'";
         } else {
-            $query = "update produtos set nome = '{$produto->getNome()}', preco = '{$produto->getPreco()}', descricao = '{$produto->getDescricao()}', categoria_id= '{$produto->getCategoria()->getId()}', usado = '{$produto->getUsado()}', isbn = NULL ,tipoProduto = '{$produto->tipoProduto}' where id = '{$produto->getId()}'";
+            $query = "update produtos set nome = '{$produto->getNome()}', preco = '{$produto->getPreco()}', descricao = '{$produto->getDescricao()}', categoria_id= '{$produto->getCategoria()->getId()}', usado = '{$produto->getUsado()}', isbn = '{$produto->getIsbn()}', tipoProduto = '{$produto->tipoProduto}', waterMark = 'N/A', taxaImpressao = '{$produto->getTaxaImpressao()}' where id = '{$produto->getId()}'";
 
         }
         //$query = "update produtos set nome = '{$produto->getNome()}', preco = '{$produto->getPreco()}', descricao = '{$produto->getDescricao()}', categoria_id= '{$produto->getCategoria()->getId()}', usado = '{$produto->getUsado()}' isbn = '{$produto->getIsbn()}', tipoProduto = '{produto->tipoProduto}' where id = '{$produto->getId()}'";
